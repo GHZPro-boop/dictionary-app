@@ -7,6 +7,7 @@ import { SearchCard } from './Components/SearchCard';
 function App() {
   const [searchResult, setSearchResult] = useState(null);
   const [isDarkMode, setDarkMode] = useState(false);
+  const [selectedFont, setSelectedFont] = useState('sans-serif'); // Default font
 
   const handleSearch = async (word) => {
     if (word.trim() === '') return;
@@ -25,11 +26,15 @@ function App() {
     setDarkMode(!isDarkMode);
   };
 
+  const handleFontChange = (event) => {
+    setSelectedFont(event.target.value);
+  };
+
   return (
     <div className={`App ${isDarkMode ? "bg-zinc-950" : "bg-white"} w-full h-full pb-5 bg-white`}>
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} selectedFont={selectedFont} onFontChange={handleFontChange} />
       <Keyboard isDarkMode={isDarkMode} onSearch={handleSearch} />
-      <SearchCard isDarkMode={isDarkMode} searchResult={searchResult} />
+      <SearchCard isDarkMode={isDarkMode} searchResult={searchResult} selectedFont={selectedFont} />
     </div>
   )
 }

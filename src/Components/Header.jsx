@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/images/logo.svg";
 import moon from "../assets/images/icon-moon.svg";
 
-export const Header = ({ toggleDarkMode, isDarkMode }) => {
+export const Header = ({ toggleDarkMode, isDarkMode, selectedFont, onFontChange }) => {
 
     const toggleStyle = {
         transform: isDarkMode ? "translateX(100%)" : "translateX(0)",
@@ -16,8 +16,12 @@ export const Header = ({ toggleDarkMode, isDarkMode }) => {
             <div className={`Group2 flex w-52 md:w-64 lg:w-96 h-8`}>
                 <div className={`Group13 w-24 md:w-28 lg:w-28 h-6 pl-[140px] md:pl-[400px] lg:pl-[900px] mt-[4px] justify-center items-center gap-4 inline-flex`}>
                     <div className={`SansSerif text-right text-zinc-800 text-sm md:text-lg lg:text-lg font-bold leading-normal`}>
-                        <select className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white"}`}>
-                            <option value="sans serif">Sans Serif</option>
+                        <select
+                            className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white"}`}
+                            value={selectedFont}
+                            onChange={onFontChange}
+                        >
+                            <option value="sans-serif">Sans Serif</option>
                             <option value="serif">Serif</option>
                             <option value="monospace">Monospace</option>
                         </select>

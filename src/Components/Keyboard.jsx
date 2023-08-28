@@ -15,7 +15,7 @@ export const Keyboard = ({ onSearch, isDarkMode }) => {
 
     return (
         <div className={`Group3 ${isDarkMode ? "bg-zinc-950" : "bg-white"} h-12`}>
-            <div className={`Rectangle ${isDarkMode ? "bg-stone-900" : "bg-white"} mx-[6.5%] md:mx-[16%] lg:mx-[16.5%] mt-[15%] md:mt-5% lg:mt-[5%] h-12 bg-zinc-100 rounded-2xl`}>
+            <div className={`Rectangle ${isDarkMode ? "bg-stone-900" : "bg-white"} mx-[6.5%] md:mx-[16%] lg:mx-[16.5%] mt-[15%] md:mt-5% lg:mt-[5%] h-12 rounded-2xl`}>
                 <form onSubmit={handleSearchSubmit}>
                     <input
                         type="text"
